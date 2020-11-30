@@ -1,8 +1,7 @@
 package com.huy.hiltdemo.ui
 
-import android.util.Log
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.huy.hiltdemo.R
 import com.huy.hiltdemo.base.BaseFragment
 import com.huy.hiltdemo.base.BaseViewModel
@@ -12,7 +11,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainFragment : BaseFragment<ViewDataBinding>() {
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by activityViewModels()
 
     @Inject
     lateinit var mainAdapter : MainAdapter
@@ -25,9 +24,5 @@ class MainFragment : BaseFragment<ViewDataBinding>() {
 
     override fun setDataBinding() = false
 
-    override fun initView() {
-        Log.d("huylogcat", "MainFragment initView ${viewModel.count}")
-
-        mainAdapter.preferencesHelper.printValue()
-    }
+    override fun initView() {}
 }
