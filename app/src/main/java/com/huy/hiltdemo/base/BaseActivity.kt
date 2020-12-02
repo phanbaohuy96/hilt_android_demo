@@ -51,6 +51,21 @@ abstract class BaseActivity<DB : ViewDataBinding> : AppCompatActivity(){
         }
     }
 
+    fun addFragmentToStack(fragment: BaseFragment<ViewDataBinding>) {
+        supportFragmentManager
+            .beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left,
+                R.anim.slide_in_left,
+                R.anim.slide_out_right
+            )
+            .add(R.id.layout_container, fragment)
+            .addToBackStack(null)
+            .commit()
+        supportFragmentManager.executePendingTransactions()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         detachView()

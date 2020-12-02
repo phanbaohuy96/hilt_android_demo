@@ -24,5 +24,7 @@ class MainFragment : BaseFragment<ViewDataBinding>() {
 
     override fun setDataBinding() = false
 
-    override fun initView() {}
+    override fun initView() {
+        //TODO: do anything after view created
+    }
 }
